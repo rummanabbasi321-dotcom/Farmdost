@@ -63,7 +63,7 @@ export default function Hero() {
           >
             {t('hero_sub')}
           </p>
-          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
+          <div className="fd-cta-row">
             <a
               className="btn btn-primary"
               href={whatsappHref}

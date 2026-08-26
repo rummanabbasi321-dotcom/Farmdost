@@ -9,15 +9,11 @@ export default function Footer() {
 
   return (
     <footer
+      className="fd-footer"
       style={{
         maxWidth: 1180,
         margin: '0 auto',
         padding: 'clamp(28px,3vw,44px) clamp(20px,5vw,64px)',
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: 16,
-        alignItems: 'center',
-        justifyContent: 'space-between',
       }}
     >
       <Logo height={40} className="fd-latin" />

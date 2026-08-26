@@ -49,7 +49,7 @@ export default function Contact() {
               {t('ct_p')}
             </p>
             <a
-              className="btn btn-primary"
+              className="btn btn-primary fd-wa-btn"
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"

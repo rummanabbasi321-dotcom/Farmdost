@@ -29,7 +29,7 @@ export default function Comparison() {
       <p style={{ fontSize: 15, color: 'color-mix(in srgb,var(--color-text) 68%,transparent)', margin: '0 0 26px' }}>
         {t('cmp_sub')}
       </p>
-      <div style={{ overflowX: 'auto' }}>
+      <div className="fd-table-wrap">
         <table className="table" style={{ minWidth: 560 }}>
           <thead>
             <tr>

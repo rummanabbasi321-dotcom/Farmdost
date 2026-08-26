@@ -7,6 +7,8 @@ export const EN = {
   nav_about: 'About',
   nav_impact: 'Impact',
   nav_whatsapp: 'WhatsApp',
+  nav_menu: 'Menu',
+  nav_close: 'Close menu',
   hero_kicker: 'Hermetic grain storage',
   hero_h1: 'Store your harvest.<br/>Lose nothing.',
   hero_sub:
@@ -117,6 +119,8 @@ export const UR = {
   nav_about: 'تعارف',
   nav_impact: 'اثرات',
   nav_whatsapp: 'WhatsApp',
+  nav_menu: 'مینو',
+  nav_close: 'مینو بند کریں',
   hero_kicker: 'ہرمیٹک اناج سٹوریج',
   hero_h1: 'اپنی فصل محفوظ رکھیں۔<br/>نقصان بالکل نہ ہونے دیں۔',
   hero_sub:
