@@ -1,11 +1,12 @@
 import React from 'react';
 import { useLanguage } from '../i18n.jsx';
-import { WHATSAPP_HREF } from '../config.js';
+import { getWhatsAppHref } from '../config.js';
 import { WhatsAppIcon } from './Icons.jsx';
 import ImageSlot from './ImageSlot.jsx';
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const whatsappHref = getWhatsAppHref(lang);
 
   return (
     <section
@@ -42,7 +43,7 @@ export default function Hero() {
           </span>
           <h1
             style={{
-              fontFamily: "'Inter',sans-serif",
+              fontFamily: 'var(--font-heading)',
               fontWeight: 600,
               fontSize: 'clamp(40px,5.6vw,74px)',
               lineHeight: 1.04,
@@ -65,7 +66,7 @@ export default function Hero() {
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
             <a
               className="btn btn-primary"
-              href={WHATSAPP_HREF}
+              href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: 'none', fontSize: 15, padding: '12px 22px' }}

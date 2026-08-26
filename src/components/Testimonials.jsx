@@ -30,7 +30,7 @@ export default function Testimonials() {
       <div className="fd-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 18 }}>
         {QUOTES.map(({ qKey, cKey }) => (
           <figure className="card" style={{ padding: 24, margin: 0 }} key={qKey}>
-            <blockquote style={{ fontFamily: "'Inter'", fontWeight: 500, fontSize: 17, lineHeight: 1.5, margin: '0 0 16px' }}>
+            <blockquote style={{ fontFamily: 'var(--font-heading)', fontWeight: 500, fontSize: 17, lineHeight: 1.5, margin: '0 0 16px' }}>
               {t(qKey)}
             </blockquote>
             <figcaption style={{ fontSize: 13, color: 'color-mix(in srgb,var(--color-text) 58%,transparent)' }}>

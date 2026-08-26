@@ -9,13 +9,14 @@ import Crops from './components/Crops.jsx';
 import Comparison from './components/Comparison.jsx';
 import Testimonials from './components/Testimonials.jsx';
 import About from './components/About.jsx';
+import Impact from './components/Impact.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 
 function Page() {
   const { lang } = useLanguage();
   return (
-    <div data-lang={lang}>
+    <div id="top" data-lang={lang} dir={lang === 'ur' ? 'rtl' : 'ltr'} lang={lang}>
       <Navbar />
       <Hero />
       <Stats />
@@ -25,6 +26,7 @@ function Page() {
       <Comparison />
       <Testimonials />
       <About />
+      <Impact />
       <Contact />
       <Footer />
     </div>

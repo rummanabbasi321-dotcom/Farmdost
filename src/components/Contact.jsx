@@ -1,16 +1,19 @@
 import React from 'react';
 import { useLanguage } from '../i18n.jsx';
-import { WHATSAPP_HREF, CONTACT_PHONE_DISPLAY } from '../config.js';
+import {
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_LOCAL,
+  getWhatsAppHref,
+} from '../config.js';
 import { WhatsAppIcon } from './Icons.jsx';
 
 export default function Contact() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const whatsappHref = getWhatsAppHref(lang);
 
-  // Mirrors the original renderVals().onSubmit: prevent default and open
-  // the same WhatsApp link in a new tab.
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.open(WHATSAPP_HREF, '_blank', 'noopener');
+    window.open(whatsappHref, '_blank', 'noopener');
   };
 
   return (
@@ -31,7 +34,7 @@ export default function Contact() {
           <div>
             <h2
               style={{
-                fontFamily: "'Inter'",
+                fontFamily: 'var(--font-heading)',
                 fontWeight: 600,
                 fontSize: 'clamp(30px,3.4vw,46px)',
                 lineHeight: 1.08,
@@ -47,7 +50,7 @@ export default function Contact() {
             </p>
             <a
               className="btn btn-primary"
-              href={WHATSAPP_HREF}
+              href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -57,10 +60,16 @@ export default function Contact() {
                 background: '#fff',
                 color: 'var(--color-accent)',
                 borderColor: '#fff',
+                gap: 10,
               }}
             >
               <WhatsAppIcon size={18} />
-              {CONTACT_PHONE_DISPLAY}
+              <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: 1.25, gap: 2 }}>
+                <span style={{ fontSize: 12, fontWeight: 500, opacity: 0.75 }}>{t('ct_wa_label')}</span>
+                <span className="fd-phone" dir="ltr">
+                  {lang === 'ur' ? CONTACT_PHONE_LOCAL : CONTACT_PHONE_DISPLAY}
+                </span>
+              </span>
             </a>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,.62)', margin: '14px 0 0' }}>{t('ct_hours')}</p>
           </div>
@@ -75,15 +84,15 @@ export default function Contact() {
           >
             <div className="field" style={{ marginBottom: 16 }}>
               <label htmlFor="fd-name">{t('f_name')}</label>
-              <input className="input" id="fd-name" type="text" placeholder="Full name" />
+              <input className="input" id="fd-name" type="text" placeholder={t('f_name_ph')} />
             </div>
             <div className="field" style={{ marginBottom: 16 }}>
               <label htmlFor="fd-phone">{t('f_phone')}</label>
-              <input className="input" id="fd-phone" type="tel" placeholder="03xx xxxxxxx" />
+              <input className="input" id="fd-phone" type="tel" inputMode="tel" placeholder={t('f_phone_ph')} />
             </div>
             <div className="field" style={{ marginBottom: 20 }}>
               <label htmlFor="fd-msg">{t('f_msg')}</label>
-              <textarea className="input" id="fd-msg" placeholder="e.g. 50 maund of wheat to store this season" />
+              <textarea className="input" id="fd-msg" placeholder={t('f_msg_ph')} />
             </div>
             <button type="submit" className="btn btn-primary btn-block" style={{ minHeight: 44, fontSize: 15 }}>
               <span>{t('f_btn')}</span>

@@ -29,7 +29,7 @@ export default function About() {
           </span>
           <h2
             style={{
-              fontFamily: "'Inter'",
+              fontFamily: 'var(--font-heading)',
               fontWeight: 600,
               fontSize: 'clamp(28px,3vw,40px)',
               letterSpacing: '-0.015em',

@@ -17,7 +17,7 @@ export default function Comparison() {
     <section id="compare" style={{ maxWidth: 1180, margin: '0 auto', padding: 'clamp(40px,5vw,72px) clamp(20px,5vw,64px)', scrollMarginTop: 70 }}>
       <h2
         style={{
-          fontFamily: "'Inter'",
+          fontFamily: 'var(--font-heading)',
           fontWeight: 600,
           fontSize: 'clamp(28px,3vw,40px)',
           letterSpacing: '-0.015em',

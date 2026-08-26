@@ -55,7 +55,7 @@ export default function Solution() {
           </span>
           <h2
             style={{
-              fontFamily: "'Inter'",
+              fontFamily: 'var(--font-heading)',
               fontWeight: 600,
               fontSize: 'clamp(28px,3vw,40px)',
               lineHeight: 1.1,
@@ -82,7 +82,7 @@ export default function Solution() {
                 <div style={{ color: 'var(--color-accent)', marginBottom: 12 }}>
                   <Icon />
                 </div>
-                <h3 style={{ fontFamily: "'Inter'", fontWeight: 600, fontSize: 16, margin: '0 0 8px' }}>{t(tKey)}</h3>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: 16, margin: '0 0 8px' }}>{t(tKey)}</h3>
                 <p style={{ fontSize: 14, lineHeight: 1.55, color: 'color-mix(in srgb,var(--color-text) 70%,transparent)', margin: 0 }}>
                   {t(bKey)}
                 </p>

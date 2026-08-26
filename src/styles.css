@@ -13,9 +13,10 @@
   --color-section: #123a22;
   --color-section-glow: #1f7040;
 
-  --font-heading: 'Inter', system-ui, sans-serif;
-  --font-heading-weight: 500;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-heading-weight: 600;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-urdu: 'IBM Plex Sans Arabic', 'Plus Jakarta Sans', system-ui, sans-serif;
 
   --space-1: 2.8px;
   --space-2: 5.6px;
@@ -40,7 +41,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   color: var(--color-text);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
   text-wrap: pretty;
   font-size: 15px;
   line-height: 1.55;
@@ -51,6 +52,8 @@ body {
       transparent 60%
     ),
     var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -125,6 +128,8 @@ figure { margin: 0; }
   background: var(--color-surface);
   border: 1px solid var(--color-divider);
   border-radius: var(--radius-md);
+  direction: inherit;
+  text-align: start;
 }
 .input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
 .input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
@@ -164,15 +169,24 @@ textarea.input { min-height: 90px; resize: vertical; }
   font-family: var(--font-heading);
   font-weight: var(--font-heading-weight);
   font-size: 18px;
-  margin-right: auto;
+  margin-inline-end: auto;
 }
 .nav a { color: inherit; text-decoration: none; font-size: 14px; }
 .nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
+.fd-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 0;
+}
+.fd-logo img {
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--color-text) 8%, transparent);
+}
 
 /* — tables — */
 .table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .table th {
-  text-align: left;
+  text-align: start;
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -180,7 +194,7 @@ textarea.input { min-height: 90px; resize: vertical; }
   padding: var(--space-2);
   border-bottom: 1px solid transparent;
 }
-.table td { padding: var(--space-2); border-bottom: 1px solid transparent; }
+.table td { padding: var(--space-2); border-bottom: 1px solid transparent; text-align: start; }
 .table thead tr {
   background: linear-gradient(
       to right,
@@ -217,11 +231,53 @@ textarea.input { min-height: 90px; resize: vertical; }
       no-repeat bottom / 100% 1px;
 }
 
-/* — FarmDost-specific — */
-[data-lang='ur'] [data-i18n] {
-  font-family: 'Noto Nastaliq Urdu', serif;
+/* — Urdu / RTL — */
+[data-lang='ur'] {
+  font-family: var(--font-urdu);
+  line-height: 1.7;
+}
+
+[data-lang='ur'] h1,
+[data-lang='ur'] h2,
+[data-lang='ur'] h3,
+[data-lang='ur'] p,
+[data-lang='ur'] a,
+[data-lang='ur'] label,
+[data-lang='ur'] button,
+[data-lang='ur'] td,
+[data-lang='ur'] th,
+[data-lang='ur'] span,
+[data-lang='ur'] input,
+[data-lang='ur'] textarea {
+  font-family: var(--font-urdu) !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+/* Keep brand mark in Latin for readability */
+[data-lang='ur'] .nav-brand,
+[data-lang='ur'] .fd-latin {
+  font-family: var(--font-heading) !important;
+  letter-spacing: -0.015em !important;
+}
+
+[data-lang='ur'] .input {
+  text-align: right;
   direction: rtl;
-  line-height: 2;
+}
+
+[data-lang='ur'] .input[type='tel'] {
+  direction: ltr;
+  text-align: right;
+  unicode-bidi: plaintext;
+}
+
+.fd-phone {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  font-weight: 700;
 }
 
 @keyframes fd-float {

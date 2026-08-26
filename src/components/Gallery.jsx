@@ -11,7 +11,7 @@ export default function Gallery() {
     <section style={{ maxWidth: 1180, margin: '0 auto', padding: 'clamp(24px,3vw,40px) clamp(20px,5vw,64px) clamp(48px,6vw,80px)' }}>
       <h2
         style={{
-          fontFamily: "'Inter'",
+          fontFamily: 'var(--font-heading)',
           fontWeight: 600,
           fontSize: 'clamp(24px,2.6vw,34px)',
           letterSpacing: '-0.015em',

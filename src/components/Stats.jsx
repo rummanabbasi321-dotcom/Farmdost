@@ -2,14 +2,14 @@ import React from 'react';
 import { useLanguage } from '../i18n.jsx';
 
 const STATS = [
-  { value: '30%', key: 'stat1' },
-  { value: '12+ mo', key: 'stat2' },
-  { value: '0', key: 'stat3' },
-  { value: '100%', key: 'stat4' },
+  { valueKey: 'stat1v', labelKey: 'stat1' },
+  { valueKey: 'stat2v', labelKey: 'stat2' },
+  { valueKey: 'stat3v', labelKey: 'stat3' },
+  { valueKey: 'stat4v', labelKey: 'stat4' },
 ];
 
 export default function Stats() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <section
@@ -23,18 +23,20 @@ export default function Stats() {
       <div style={{ maxWidth: 1180, margin: '0 auto', padding: 'clamp(36px,4.5vw,60px) clamp(20px,5vw,64px)' }}>
         <div className="fd-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '28px 24px' }}>
           {STATS.map((s) => (
-            <div key={s.key}>
+            <div key={s.labelKey}>
               <p
+                className={lang === 'ur' ? undefined : 'fd-latin'}
                 style={{
-                  fontFamily: "'Inter'",
+                  fontFamily: lang === 'ur' ? 'var(--font-urdu)' : 'var(--font-heading)',
                   fontWeight: 600,
                   fontSize: 'clamp(32px,3.6vw,50px)',
                   lineHeight: 1,
                   margin: '0 0 10px',
                   color: '#fff',
+                  direction: lang === 'ur' ? 'rtl' : 'ltr',
                 }}
               >
-                {s.value}
+                {t(s.valueKey)}
               </p>
               <p
                 style={{
@@ -45,7 +47,7 @@ export default function Stats() {
                   margin: 0,
                 }}
               >
-                {t(s.key)}
+                {t(s.labelKey)}
               </p>
             </div>
           ))}
